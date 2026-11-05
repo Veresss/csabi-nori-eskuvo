@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --typewriter-duration: 2s;
 }
 
 @theme inline {
@@ -10,6 +11,37 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-island: var(--font-island-moments);
+}
+
+@theme {
+  --animate-magicCaret: typewriter var(--typewriter-duration) steps(32) forwards, disappear var(--typewriter-duration) steps(32) var(--typewriter-duration) forwards;
+  --animate-magicTypewriter: typewriter var(--typewriter-duration) steps(32) forwards;
+  --animate-appear: appear 1s ease-in-out forwards;
+    @keyframes typewriter {
+      to {
+        left: 100%;
+      }
+    }
+
+    @keyframes disappear {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes appear {
+      0% {
+        opacity: 0;
+        transform: translate(0, -10px);
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +55,49 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+svg {
+  opacity: 1
+}
+
+#illustration {
+   animation: squigglevision 0.5s infinite alternate;
+}
+
+@keyframes squigglevision {
+  0% {
+    filter: url('#sketch-0');
+  }
+  25% {
+    filter: url('#sketch-1');
+  }
+  50% {
+    filter: url('#sketch-2');
+  }
+  75% {
+    filter: url('#sketch-3');
+  }
+  100% {
+    filter: url('#sketch-4');
+  }
+}
+
+.path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: paint 1s ease-in-out 1s forwards;
+}
+
+.path:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+@keyframes paint {
+  from {
+    stroke-dashoffset: 1; 
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }

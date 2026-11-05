@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Island_Moments } from "next/font/google";
+import OrangeAvenue from "next/font/local";
 import "./globals.css";
+
+export const orangeAvenue = OrangeAvenue({
+  src: [
+    {
+      path: './font/OrangeAvenueDEMO-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './font/OrangeAvenueDEMO-Regular.otf',
+      weight: '400',
+      style: 'outline',
+    }
+  ]
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const islandMoments = Island_Moments({
+  variable: "--font-island-moments",
+  subsets: ["latin"],
+  weight: '400'
 });
 
 const geistMono = Geist_Mono({
@@ -21,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${islandMoments.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
