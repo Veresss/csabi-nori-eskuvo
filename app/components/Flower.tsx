@@ -56,7 +56,7 @@ export default function Flower() {
                     fill="none"
                     stroke="url(#watercolour)"
                     strokeMiterlimit="10"
-                    stroke-width="34"
+                    strokeWidth="34"
                 />
                 <path
                     mask="url(#mask2)"
@@ -65,7 +65,7 @@ export default function Flower() {
                     fill="none"
                     stroke="url(#watercolour)"
                     strokeMiterlimit="10"
-                    stroke-width="34"
+                    strokeWidth="34"
                 />
 
                 <g id="illustration">
